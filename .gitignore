@@ -29,3 +29,6 @@ go.work.sum
 
 # Config files
 config.ini
+
+# Database files
+webapp.sql
