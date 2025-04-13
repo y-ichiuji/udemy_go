@@ -17,17 +17,17 @@ func main() {
 
 	// u.Create()
 
-	user, _ := models.GetUser(1)
-	fmt.Println(user)
+	// user, _ := models.GetUser(1)
+	// fmt.Println(user)
 
-	user.Name = "test2"
-	user.Email = "test2@example.com"
-	user.Update()
+	// user.Name = "test2"
+	// user.Email = "test2@example.com"
+	// user.Update()
 
-	user, _ = models.GetUser(1)
-	fmt.Println(user)
+	// user, _ = models.GetUser(1)
+	// fmt.Println(user)
 
-	user.Delete()
-	user, _ = models.GetUser(1)
-	fmt.Println(user)
+	// user.Delete()
+	// user, _ = models.GetUser(1)
+	// fmt.Println(user)
 }
