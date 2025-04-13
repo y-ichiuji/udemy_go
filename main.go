@@ -50,10 +50,9 @@ func main() {
 	// 	fmt.Println(todo)
 	// }
 
-	todo, _ := models.GetTodo(1)
+	todo, _ := models.GetTodo(3)
 	fmt.Println(todo)
-	todo.Content = "Updated Todo"
-	todo.Update()
-	todo, _ = models.GetTodo(1)
-	fmt.Println(todo)
+	todo.Delete()
+	deletedTodo, _ := models.GetTodo(3)
+	fmt.Println(deletedTodo)
 }
