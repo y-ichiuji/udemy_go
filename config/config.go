@@ -2,7 +2,7 @@ package config
 
 import (
 	"log"
-	"udemy-go/todo_app/utils"
+	"udemy-go/utils"
 
 	"gopkg.in/ini.v1"
 )

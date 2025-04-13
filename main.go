@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	"udemy-go/todo_app/config"
+	"udemy-go/config"
 )
 
 func main() {
