@@ -14,7 +14,6 @@ func main() {
 	// u.Email = "test@example.com"
 	// u.Password = "testtest"
 	// fmt.Println(u)
-
 	// u.Create()
 
 	// user, _ := models.GetUser(1)
@@ -30,4 +29,7 @@ func main() {
 	// user.Delete()
 	// user, _ = models.GetUser(1)
 	// fmt.Println(user)
+
+	user, _ := models.GetUser(2)
+	user.CreateTodo("First Todo")
 }
