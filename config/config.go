@@ -2,8 +2,8 @@ package config
 
 import (
 	"log"
-	"udemy-go/utils"
 
+	"github.com/y-ichiuji/udemy-go/utils"
 	"gopkg.in/ini.v1"
 )
 
@@ -30,6 +30,6 @@ func LoadConfig() {
 		Port: cfg.Section("web").Key("port").MustString("8080"),
 		SQLDriver: cfg.Section("db").Key("driver").String(),
 		DbName: cfg.Section("db").Key("name").String(),
-		LogFile: cfg.Section("web").Key("logfile").String(),
+		LogFile: cfg.Section("web").Key("logFile").String(),
 	}
 }

@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
-	"udemy-go/config"
+
+	"github.com/y-ichiuji/udemy-go/config"
 )
 
 func main() {

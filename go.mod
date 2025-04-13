@@ -1,4 +1,4 @@
-module udemy-go
+module github.com/y-ichiuji/udemy-go
 
 go 1.23.4
 
