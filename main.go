@@ -49,4 +49,11 @@ func main() {
 	// for _, todo := range todos2 {
 	// 	fmt.Println(todo)
 	// }
+
+	todo, _ := models.GetTodo(1)
+	fmt.Println(todo)
+	todo.Content = "Updated Todo"
+	todo.Update()
+	todo, _ = models.GetTodo(1)
+	fmt.Println(todo)
 }
