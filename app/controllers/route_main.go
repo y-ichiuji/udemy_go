@@ -3,6 +3,8 @@ package controllers
 import (
 	"log"
 	"net/http"
+
+	"github.com/y-ichiuji/udemy-go/app/models"
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
@@ -59,6 +61,54 @@ func todoSave(w http.ResponseWriter, r *http.Request) {
 
 	content := r.PostFormValue("content")
 	if err := user.CreateTodo(content); err != nil {
+		log.Println(err)
+	}
+
+	http.Redirect(w, r, "/todos", http.StatusFound)
+}
+
+func todoEdit(w http.ResponseWriter, r *http.Request, id int) {
+	session, err := session(w, r)
+	if err != nil {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		return
+	}
+
+	_, err = session.GetUserBySession()
+	if err != nil {
+		log.Println(err)
+	}
+
+	todo, err := models.GetTodo(id)
+	if err != nil {
+		log.Println(err)
+	}
+
+	generateHTML(w, todo, "layout", "private_navbar", "todo_edit")
+}
+
+func todoUpdate(w http.ResponseWriter, r *http.Request, id int) {
+	session, err := session(w, r)
+	if err != nil {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		return
+	}
+
+	err = r.ParseForm()
+	if err != nil {
+		log.Println(err)
+		http.Redirect(w, r, "/todos", http.StatusFound)
+		return
+	}
+
+	user, err := session.GetUserBySession()
+	if err != nil {
+		log.Println(err)
+	}
+
+	content := r.PostFormValue("content")
+	todo := &models.Todo{ID: id, Content: content, UserID: user.ID}
+	if err := todo.Update(); err != nil {
 		log.Println(err)
 	}
 
