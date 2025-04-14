@@ -111,7 +111,7 @@ func (u *User) CreateSession() (session Session, err error) {
 	return session, err
 }
 
-func (session *Session) CheckSession() (valid bool, err error) {
+func (session *Session) Verify() (valid bool, err error) {
 	cmd := `select id, uuid, email, user_id, created_at from sessions where uuid = ?`
 
 	err = Db.QueryRow(cmd, session.UUID).Scan(
